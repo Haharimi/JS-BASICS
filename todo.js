@@ -4,7 +4,20 @@ const toDoForm = document.querySelector(".js-toDoForm"),
 
 const TODOS_LS = "toDos";
 
-const toDos = [];
+let toDos = [];
+
+function deleteToDo(event) { //delBtn 클릭 시 todolist 삭제
+    const btn = event.target;
+    const li = btn.parentNode;//삭제할 li 
+    toDoList.removeChild(li);
+    const cleanToDos = toDos.filter(function(toDo) {
+        return toDo.id !== parseInt(li.id); 
+        //toDos li의 id와 삭제된 li의 id값이 같지 않는 것만 반환하는 filter 함수실행
+        //li.id가 문자열이기때문에 숫자로 변환해주는 parseint실행
+    });
+    toDos = cleanToDos; //toDos를 cleanToDos로 대체
+    saveTodos(); //실행된 새로운 결과값을 저장 
+}
 
 function saveTodos() {
     localStorage.setItem(TODOS_LS, JSON.stringify(toDos));//JSON.stringify()는 object를 string으로 변환시켜준다
@@ -14,9 +27,10 @@ function paintToDo(text) {
     const li = document.createElement("li"); //li 생성
     const delBtn = document.createElement("button"); //buttion 생성, createElement();
     delBtn.innerText ="❌";
+    delBtn.addEventListener("click", deleteToDo);//delBtn 클릭 시, 리스트를 삭제하는 이벤트 추가 
     const span = document.createElement("span")
     const newId = toDos.length + 1;
-    span.innerText = text;
+    span.innerText = text; //span태그 인자에 추가 
     li.appendChild(delBtn);//li(부모)에 delBtn(자식) 추가 
     li.appendChild(span); //li(부모)에 span(자식) 추가 
     li.id = newId; //li에 id 추가하기 
