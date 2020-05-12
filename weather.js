@@ -12,7 +12,7 @@ function getWeather(lat, lng){
         .then(function(json) {
             const temperature = json.main.temp;
             const place = json.name;
-            weather.innerHTML = `${temperature} @ ${place}`;
+            weather.innerHTML = `${Math.floor(temperature)}℃ ${place}`;
         })//js데이터가 준비되면 데이터를 보여준다. 
 }
 

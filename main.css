@@ -1,0 +1,66 @@
+h1, h2, h3, h4, h5 {
+    margin: 0;
+}
+
+section {
+    display: flex;
+    height: 100vh;
+    justify-content: center;/* 가로에서 가운데 정렬 */
+    align-items: center;/* 세로에서 가운데 정렬 */
+    flex-direction: column; /* 수직 정렬 */
+} /* 중앙정렬 */
+
+.clock h1 {
+    font-size: 160px;
+    font-weight: bold;
+    margin: 0;
+}
+
+input {
+    background: none;
+    appearance: none;
+    border: 0;
+    font-size: 40px;
+    color: white;
+    border-bottom: 2px solid white;
+    margin: 10px 0 20px 0;
+    text-align: center;
+}
+
+input:focus {
+    outline: none;
+}
+
+input::placeholder {
+    color: white;
+    opacity: 0.8;
+}
+
+.toDo_form {
+    width: 335px;
+    text-align: left;
+    font-size: 22px;
+} /*input text 짤림 방지 */
+
+.toDo_form::placeholder {
+    font-size: 22px;
+    text-align: left;
+} /*input text 짤림 방지 */
+
+
+.greetings {
+    font-size: 58px;
+    font-weight: bold;
+    opacity: 0.8;
+}
+
+.weather_text {
+    position: absolute;
+    top: 25px;
+    right: 25px;
+    font-style: italic;
+}
+
+.toDOList_text {
+    font-size: 28px;
+}
