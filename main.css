@@ -2,16 +2,16 @@ h1, h2, h3, h4, h5 {
     margin: 0;
 }
 
-section {
+.container {
     display: flex;
     height: 100vh;
     justify-content: center;/* 가로에서 가운데 정렬 */
     align-items: center;/* 세로에서 가운데 정렬 */
-    flex-direction: column; /* 수직 정렬 */
+    flex-direction: column; 
 } /* 중앙정렬 */
 
 .clock h1 {
-    font-size: 160px;
+    font-size: 180px;
     font-weight: bold;
     margin: 0;
 }
@@ -20,15 +20,11 @@ input {
     background: none;
     appearance: none;
     border: 0;
-    font-size: 40px;
+    font-size: 36px;
     color: white;
     border-bottom: 2px solid white;
-    margin: 10px 0 20px 0;
-    text-align: center;
-}
-
-input:focus {
-    outline: none;
+    margin: 20px 0 20px 0;
+    text-align: left;
 }
 
 input::placeholder {
@@ -36,16 +32,7 @@ input::placeholder {
     opacity: 0.8;
 }
 
-.toDo_form {
-    width: 335px;
-    text-align: left;
-    font-size: 22px;
-} /*input text 짤림 방지 */
 
-.toDo_form::placeholder {
-    font-size: 22px;
-    text-align: left;
-} /*input text 짤림 방지 */
 
 
 .greetings {
@@ -63,4 +50,22 @@ input::placeholder {
 
 .toDOList_text {
     font-size: 28px;
+}
+
+.del_button {
+    background-color: transparent !important; /* 버튼 배경 색 투명 */
+    border: none;
+    font-size: 28px;
+    margin-right: 6px;
+}
+
+ul {
+   padding: 0;
+   margin: 0;
+   margin-top: 50px;
+   list-style-type: none; /* li marker 비활성화 */
+}
+
+.li_list {
+    margin-bottom: 10px;
 }

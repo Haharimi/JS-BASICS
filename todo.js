@@ -1,5 +1,5 @@
 const toDoForm = document.querySelector(".js-toDoForm"),
-    toDoInput = toDoForm.querySelector("input"),
+    toDoInput = toDoForm.querySelector("input")
     toDoList = document.querySelector(".js-toDoList");
 
 const TODOS_LS = "toDos";
@@ -26,7 +26,9 @@ function saveTodos() {
 function paintToDo(text) {
     const li = document.createElement("li"); //li 생성
     const delBtn = document.createElement("button"); //buttion 생성, createElement();
-    delBtn.innerText ="❌";
+    delBtn.innerText = "❌";
+    delBtn.className = "del_button";
+    li.className ="li_list";
     delBtn.addEventListener("click", deleteToDo);//delBtn 클릭 시, 리스트를 삭제하는 이벤트 추가 
     const span = document.createElement("span")
     const newId = toDos.length + 1;
@@ -47,8 +49,9 @@ function handleSubmit(event) {
     event.preventDefault(); //기본동작 제어 
     const currentValue = toDoInput.value; //value값 가져오기 
     paintToDo(currentValue); 
-    toDoIuput.value = "";
+    toDoInput.value = ""; //submit처럼 값을 보냈을 때 Input의 value 값 초기화
 }
+    
 
 function loadToDos() {
     const loadedToDos = localStorage.getItem(TODOS_LS);
@@ -56,7 +59,7 @@ function loadToDos() {
         const parsedToDOs = JSON.parse(loadedToDos);//JSON.parse()는 string을 object로 변환시켜준다
         console.log(parsedToDOs);
         parsedToDOs.forEach(function(toDo) {
-            paintToDo(toDo.text);
+        paintToDo(toDo.text);
         })
     }
 }   
